@@ -42,4 +42,5 @@ export type DockerContainer = {
   Ports: Port[];
   StackName?: string;
   Image: string;
+  Gpus: string;
 };
