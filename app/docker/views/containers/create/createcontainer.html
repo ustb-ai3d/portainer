@@ -764,6 +764,24 @@
               <!-- #endregion GPU -->
               <div ng-class="{ 'edit-resources': state.mode == 'duplicate' }">
                 <div class="col-sm-12 form-section-title"> Resources </div>
+                <!-- shm-size-input -->
+                <div class="form-group">
+                  <label for="shm-size" class="col-sm-3 col-lg-2 control-label text-left" style="margin-top: 20px;">
+                    Shared memory size
+                  </label>
+                  <div class="col-sm-3">
+                    <slider model="formValues.ShmSize" floor="0" ceil="state.sliderMaxMemory" step="256" ng-if="state.sliderMaxMemory"></slider>
+                  </div>
+                  <div class="col-sm-2">
+                    <input type="number" min="0" class="form-control" ng-model="formValues.ShmSize" id="shm-size" />
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="small text-muted" style="margin-top: 7px;">
+                      Shared memory size (<b>MB</b>)
+                    </p>
+                  </div>
+                </div>
+                <!-- !shm-size-input -->
                 <!-- memory-reservation-input -->
                 <div class="form-group">
                   <label for="memory-reservation" class="col-sm-3 col-lg-2 control-label text-left mt-20"> Memory reservation </label>
@@ -781,7 +799,7 @@
                     <input type="number" min="0" class="form-control" ng-model="formValues.MemoryReservation" id="memory-reservation" />
                   </div>
                   <div class="col-sm-4">
-                    <p class="small text-muted mt-7"> Memory soft limit (<b>MB</b>) </p>
+                    <p class="small text-muted mt-7"> Memory soft limit (<b>MB</b>) (set to 0 for unlimited) </p>
                   </div>
                 </div>
                 <!-- !memory-reservation-input -->
@@ -802,7 +820,7 @@
                     <input type="number" min="0" class="form-control" ng-model="formValues.MemoryLimit" id="memory-limit" />
                   </div>
                   <div class="col-sm-4">
-                    <p class="small text-muted mt-7"> Memory limit (<b>MB</b>) </p>
+                    <p class="small text-muted mt-7"> Memory limit (<b>MB</b>) (set to 0 for unlimited) </p>
                   </div>
                 </div>
                 <!-- !memory-limit-input -->
@@ -821,7 +839,7 @@
                     ></slider>
                   </div>
                   <div class="col-sm-4 mt-20">
-                    <p class="small text-muted"> Maximum CPU usage </p>
+                    <p class="small text-muted"> Maximum CPU usage (set to 0 for unlimited) </p>
                   </div>
                 </div>
                 <!-- !cpu-limit-input -->
