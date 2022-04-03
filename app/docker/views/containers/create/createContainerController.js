@@ -67,7 +67,7 @@ angular.module('portainer.docker').controller('CreateContainerController', [
     $scope.endpoint = endpoint;
 
     $scope.formValues = {
-      alwaysPull: true,
+      alwaysPull: false,
       GPU: {
         enabled: false,
         useSpecific: true,
@@ -155,7 +155,7 @@ angular.module('portainer.docker').controller('CreateContainerController', [
           Name: 'no',
         },
         PortBindings: [],
-        PublishAllPorts: false,
+        PublishAllPorts: true,
         Binds: [],
         AutoRemove: false,
         NetworkMode: 'bridge',
