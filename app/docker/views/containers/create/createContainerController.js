@@ -70,7 +70,7 @@ angular.module('portainer.docker').controller('CreateContainerController', [
       alwaysPull: true,
       GPU: {
         enabled: false,
-        useSpecific: false,
+        useSpecific: true,
         selectedGPUs: [],
         capabilities: [],
       },
