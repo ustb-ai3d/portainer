@@ -19,11 +19,13 @@
           type="text"
           class="form-control"
           aria-describedby="registry-name"
-          uib-typeahead="image for image in $ctrl.availableImages | filter:$viewValue | limitTo:5"
+          typeahead-min-length=0
+          uib-typeahead="image for image in $ctrl.availableImages | filter:$viewValue | limitTo:all"
           ng-model="$ctrl.model.Image"
           name="image_name"
           placeholder="e.g. my-image:my-tag"
           ng-change="$ctrl.onImageChange()"
+          typeahead-wait-ms=100
           required
           data-cy="component-imageInput"
         />
