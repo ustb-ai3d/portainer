@@ -111,6 +111,7 @@ class porImageRegistryController {
 
         const images = await this.ImageService.images();
         this.images = this.ImageService.getUniqueTagListFromImages(images);
+        this.prepareAutocomplete();
       } catch (err) {
         this.Notifications.error('Failure', err, 'Unable to retrieve images');
       }
