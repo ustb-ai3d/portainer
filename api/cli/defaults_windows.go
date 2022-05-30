@@ -15,7 +15,7 @@ const (
 	defaultHTTPDisabled        = "false"
 	defaultHTTPEnabled         = "false"
 	defaultSSL                 = "false"
-	defaultSnapshotInterval    = "5m"
+	defaultSnapshotInterval    = "1m"
 	defaultBaseURL             = "/"
 	defaultSecretKeyName       = "portainer"
 )

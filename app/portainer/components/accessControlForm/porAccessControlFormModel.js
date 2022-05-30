@@ -5,7 +5,7 @@ import { ResourceControlOwnership as RCO } from '@/portainer/access-control/type
  */
 export function AccessControlFormData() {
   this.AccessControlEnabled = true;
-  this.Ownership = RCO.PRIVATE;
+  this.Ownership = RCO.RESTRICTED;
   this.AuthorizedUsers = [];
   this.AuthorizedTeams = [];
 }
