@@ -10,7 +10,7 @@
  * <por-image-registry model="$ctrl.imageModel" ... />
  */
 export function PorImageRegistryModel() {
-  this.UseRegistry = true;
+  this.UseRegistry = false;
   this.Registry = {};
   this.Image = '';
 }
