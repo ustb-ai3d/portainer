@@ -164,7 +164,6 @@ func snapshotContainers(snapshot *portainer.DockerSnapshot, cli *client.Client) 
 		} else if container.State == "running" {
 			runningContainers++
 
-			// snapshot GPUs
 			response, err := cli.ContainerInspect(context.Background(), container.ID)
 			if err != nil {
 				// Inspect a container will fail when the container runs on a different
@@ -176,6 +175,7 @@ func snapshotContainers(snapshot *portainer.DockerSnapshot, cli *client.Client) 
 					log.Info().Str("container", container.ID).Err(err).Msg("unable to inspect container in other Swarm nodes")
 				}
 			} else {
+				// snapshot GPUs
 				var gpuOptions *_container.DeviceRequest = nil
 				for _, deviceRequest := range response.HostConfig.Resources.DeviceRequests {
 					if deviceRequest.Driver == "nvidia" || deviceRequest.Capabilities[0][0] == "gpu" {
@@ -189,6 +189,15 @@ func snapshotContainers(snapshot *portainer.DockerSnapshot, cli *client.Client) 
 					}
 					for _, id := range gpuOptions.DeviceIDs {
 						gpuUseSet[id] = struct{}{}
+					}
+				}
+
+				// disposal of expired containers
+				if response.State.Running {
+					var startedAt string = response.State.StartedAt
+					t, _ := time.Parse(time.RFC3339Nano, startedAt)
+					if time.Since(t).Hours() > 24*7 && !strings.Contains(response.Name, "portainer") && !strings.Contains(response.Name, "ai3d") {
+						cli.ContainerStop(context.Background(), container.ID, nil)
 					}
 				}
 			}
