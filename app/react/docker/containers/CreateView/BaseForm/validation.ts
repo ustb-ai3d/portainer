@@ -30,7 +30,7 @@ export function validation(
       .default('')
       .test('not-duplicate-portainer', () => !isDuplicatingPortainer),
     alwaysPull: boolean()
-      .default(true)
+      .default(false)
       .test('rate-limits', 'Rate limit exceeded', (alwaysPull: boolean) =>
         alwaysPull ? !isDockerhubRateLimited : true
       ),
@@ -39,7 +39,7 @@ export function validation(
     enableWebhook: boolean().default(false),
     nodeName: string().default(''),
     ports: portsSchema(),
-    publishAllPorts: boolean().default(false),
+    publishAllPorts: boolean().default(true),
     image: imageConfigValidation().test(
       'duplicate-must-have-registry',
       'Duplicate is only possible when registry is selected',

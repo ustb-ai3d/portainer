@@ -5,8 +5,8 @@ import { Values } from './types';
 export function getDefaultViewModel(): Values {
   return {
     enabled: false,
-    useSpecific: false,
-    selectedGPUs: ['all'],
+    useSpecific: true,
+    selectedGPUs: [],
     capabilities: ['compute', 'utility'],
   };
 }

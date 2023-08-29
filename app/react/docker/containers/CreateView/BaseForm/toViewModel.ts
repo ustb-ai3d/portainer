@@ -27,10 +27,10 @@ export function toViewModel(
   return {
     accessControl,
     name: config.Name ? config.Name.replace('/', '') : '',
-    alwaysPull: true,
+    alwaysPull: false,
     autoRemove: config.HostConfig?.AutoRemove || false,
     ports: toPortsMappingViewModel(config.HostConfig?.PortBindings || {}),
-    publishAllPorts: config.HostConfig?.PublishAllPorts || false,
+    publishAllPorts: config.HostConfig?.PublishAllPorts || true,
     nodeName,
     image,
     enableWebhook,
@@ -50,9 +50,9 @@ export function getDefaultViewModel(
     image: getDefaultImageConfig(),
     accessControl,
     name: '',
-    alwaysPull: true,
+    alwaysPull: false,
     autoRemove: false,
     ports: [],
-    publishAllPorts: false,
+    publishAllPorts: true,
   };
 }

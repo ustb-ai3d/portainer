@@ -8,7 +8,7 @@ export function validation(): SchemaOf<Values> {
       .of(string().default(''))
       .default(['compute', 'utility']),
     enabled: bool().default(false),
-    selectedGPUs: array().of(string()).default(['all']),
-    useSpecific: bool().default(false),
+    selectedGPUs: array().of(string()).default([]),
+    useSpecific: bool().default(true),
   });
 }

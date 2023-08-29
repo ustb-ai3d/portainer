@@ -40,7 +40,7 @@ export function getDefaultViewModel(): Values {
     devices: [],
     sysctls: [],
     securityOpt: [],
-    sharedMemorySize: 64,
+    sharedMemorySize: 4096,
     gpu: gpuFieldsetUtils.getDefaultViewModel(),
     resources: {
       reservation: 0,
