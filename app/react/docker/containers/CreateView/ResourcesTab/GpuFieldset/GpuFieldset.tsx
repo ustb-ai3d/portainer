@@ -81,8 +81,8 @@ export function GpuFieldset({
       value: gpu.value,
       label:
         usedGpus.includes(gpu.value) || usedAllGpus
-          ? `${gpu.name} (in use)`
-          : gpu.name,
+          ? `${gpu.value}: ${gpu.name} (in use)`
+          : `${gpu.value}: ${gpu.name}`,
     }));
 
     options.unshift({
