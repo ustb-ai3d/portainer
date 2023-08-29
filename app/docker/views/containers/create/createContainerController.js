@@ -73,11 +73,11 @@ angular.module('portainer.docker').controller('CreateContainerController', [
     $scope.endpoint = endpoint;
     $scope.containerWebhookFeature = FeatureId.CONTAINER_WEBHOOK;
     $scope.formValues = {
-      alwaysPull: true,
+      alwaysPull: false,
       GPU: {
         enabled: false,
-        useSpecific: false,
-        selectedGPUs: ['all'],
+        useSpecific: true,
+        selectedGPUs: [],
         capabilities: ['compute', 'utility'],
       },
       Console: 'none',
@@ -94,7 +94,7 @@ angular.module('portainer.docker').controller('CreateContainerController', [
       CpuLimit: 0,
       MemoryLimit: 0,
       MemoryReservation: 0,
-      ShmSize: 64,
+      ShmSize: 4096,
       CmdMode: 'default',
       EntrypointMode: 'default',
       Env: [],
@@ -188,7 +188,7 @@ angular.module('portainer.docker').controller('CreateContainerController', [
           Name: 'no',
         },
         PortBindings: [],
-        PublishAllPorts: false,
+        PublishAllPorts: true,
         Binds: [],
         AutoRemove: false,
         NetworkMode: 'bridge',
