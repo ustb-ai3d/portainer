@@ -32,7 +32,7 @@ function getComponent(platform: PlatformType, environment: Environment) {
         />
       );
     case PlatformType.Docker:
-      return <EnvironmentStatsDocker snapshot={environment.Snapshots?.[0]} />;
+      return <EnvironmentStatsDocker snapshot={environment.Snapshots?.[0]} gpus={environment.Gpus}/>;
     default:
       return null;
   }
