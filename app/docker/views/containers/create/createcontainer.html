@@ -192,19 +192,19 @@
       <rd-widget-header icon="settings" title-text="Advanced container settings"></rd-widget-header>
       <rd-widget-body>
         <ul class="nav nav-pills nav-justified">
-          <li class="active interactive"><a data-target="#command" data-toggle="tab">Command & logging</a></li>
+          <li class="active interactive"><a data-target="#runtime-resources" ng-mouseup="refreshSlider()" data-toggle="tab">Runtime & Resources</a></li>
           <li class="interactive"><a data-target="#volumes" data-toggle="tab">Volumes</a></li>
-          <li class="interactive"><a data-target="#network" data-toggle="tab">Network</a></li>
-          <li class="interactive"><a data-target="#env" data-toggle="tab">Env</a></li>
-          <li class="interactive"><a data-target="#labels" data-toggle="tab">Labels</a></li>
+          <li class="interactive"><a data-target="#command" data-toggle="tab">Command & logging</a></li>
           <li class="interactive"><a data-target="#restart-policy" data-toggle="tab">Restart policy</a></li>
-          <li class="interactive"><a data-target="#runtime-resources" ng-mouseup="refreshSlider()" data-toggle="tab">Runtime & Resources</a></li>
+          <li class="interactive"><a data-target="#env" data-toggle="tab">Env</a></li>
           <li ng-if="areContainerCapabilitiesEnabled" class="interactive"><a data-target="#container-capabilities" data-toggle="tab">Capabilities</a></li>
+          <li class="interactive"><a data-target="#network" data-toggle="tab">Network</a></li>
+          <li class="interactive"><a data-target="#labels" data-toggle="tab">Labels</a></li>
         </ul>
         <!-- tab-content -->
         <div class="tab-content">
           <!-- tab-command -->
-          <div class="tab-pane active" id="command">
+          <div class="tab-pane" id="command">
             <form class="form-horizontal" style="margin-top: 15px">
               <!-- command-input -->
               <div class="form-group">
@@ -605,7 +605,7 @@
           </div>
           <!-- !tab-restart-policy -->
           <!-- tab-runtime-resources -->
-          <div class="tab-pane" id="runtime-resources">
+          <div class="tab-pane active" id="runtime-resources">
             <form class="form-horizontal" style="margin-top: 15px">
               <div class="col-sm-12 form-section-title"> Runtime </div>
               <!-- privileged-mode -->

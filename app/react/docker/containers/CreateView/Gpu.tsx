@@ -115,12 +115,6 @@ export function Gpu({
           ? `${gpu.value}: ${gpu.name} (in use)`
           : `${gpu.value}: ${gpu.name}`,
     }));
-
-    options.unshift({
-      value: 'all',
-      label: 'Use All GPUs',
-    });
-
     return options;
   }, [gpus, usedGpus, usedAllGpus]);
 
