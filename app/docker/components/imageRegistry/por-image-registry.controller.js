@@ -43,7 +43,7 @@ class porImageRegistryController {
   prepareAutocomplete() {
     let images = [];
     const registry = this.model.Registry;
-    if (this.isKnownRegistry(registry)) {
+    if (this.model.UseRegistry && this.isKnownRegistry(registry)) {
       const url = this.getRegistryURL(registry);
       const registryImages = _.filter(this.images, (image) => _.includes(image, url));
       images = _.map(registryImages, (image) => _.replace(image, new RegExp(url + '/?'), ''));
@@ -68,6 +68,7 @@ class porImageRegistryController {
   }
 
   async onImageChange() {
+    this.prepareAutocomplete();
     if (!this.isDockerHubRegistry()) {
       this.setValidity(true);
     }
@@ -114,6 +115,7 @@ class porImageRegistryController {
 
         const images = await this.ImageService.images();
         this.images = this.ImageService.getUniqueTagListFromImages(images);
+        this.prepareAutocomplete();
       } catch (err) {
         this.Notifications.error('Failure', err, 'Unable to retrieve images');
       }
