@@ -547,6 +547,7 @@ func (handler *Handler) saveEndpointAndUpdateAuthorizations(tx dataservices.Data
 		EnableHostManagementFeatures:      false,
 
 		AllowSysctlSettingForRegularUsers:         true,
+		AllowSecurityOptForRegularUsers:           true,
 		AllowBindMountsForRegularUsers:            true,
 		AllowPrivilegedModeForRegularUsers:        true,
 		AllowHostNamespaceForRegularUsers:         true,

@@ -111,6 +111,7 @@ angular.module('portainer.docker').controller('ContainerController', [
             allowHostNamespaceForRegularUsers,
             allowDeviceMappingForRegularUsers,
             allowSysctlSettingForRegularUsers,
+            allowSecurityOptForRegularUsers,
             allowBindMountsForRegularUsers,
             allowPrivilegedModeForRegularUsers,
           } = endpoint.SecuritySettings;
@@ -120,6 +121,7 @@ angular.module('portainer.docker').controller('ContainerController', [
             !allowBindMountsForRegularUsers ||
             !allowDeviceMappingForRegularUsers ||
             !allowSysctlSettingForRegularUsers ||
+            !allowSecurityOptForRegularUsers ||
             !allowHostNamespaceForRegularUsers ||
             !allowPrivilegedModeForRegularUsers;
 

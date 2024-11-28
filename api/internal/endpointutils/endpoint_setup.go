@@ -98,6 +98,7 @@ func createTLSSecuredEndpoint(flags *portainer.CLIFlags, dataStore dataservices.
 			EnableHostManagementFeatures:      false,
 
 			AllowSysctlSettingForRegularUsers:         true,
+			AllowSecurityOptForRegularUsers:           true,
 			AllowBindMountsForRegularUsers:            true,
 			AllowPrivilegedModeForRegularUsers:        true,
 			AllowHostNamespaceForRegularUsers:         true,
@@ -163,6 +164,7 @@ func createUnsecuredEndpoint(endpointURL string, dataStore dataservices.DataStor
 			EnableHostManagementFeatures:      false,
 
 			AllowSysctlSettingForRegularUsers:         true,
+			AllowSecurityOptForRegularUsers:           true,
 			AllowBindMountsForRegularUsers:            true,
 			AllowPrivilegedModeForRegularUsers:        true,
 			AllowHostNamespaceForRegularUsers:         true,
